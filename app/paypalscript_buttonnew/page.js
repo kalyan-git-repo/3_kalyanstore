@@ -1,5 +1,6 @@
     // components/PayPalButtonWrapper.js
 'use client'
+
 import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js'
     export default function PayPalButtonWrapper() {
       const initialOptions = {
