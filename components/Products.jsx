@@ -2,17 +2,24 @@
 
 import { useState } from "react"
 import Portal from "./Portal"
+import { useProducts } from "@/context/ProductContext"
 
 export default function Products(){
     const [portalImage, setPortalImage] = useState(null)
 
+    const { handleIncrementProduct, cart } = useProducts()
+    console.log(cart)
+
+    const stickers_priceid = ["CSS_HTML_Javascript_price_id", "Docker_price_id", "Firebase_price_id", "Nextjs_price_id",
+        "Nodejs_price_id", "Postgresql_price_id", "Reactjs_price_id"]
+
     const stickerDescriptions = {
-        CSS_HTML_Javascript: "core web technologies",
-        Docker: "platform for containerizing",
-        Firebase: "cloud platform for databases",
-        NextJS: "react based framework",
-        NodeJS: "javascript runtime",
-        PostgreSQL: "Robust open-source database",
+        CSS_HTML_Javascript: "Core web technologies for structure, styling, interactivity.",
+        Docker: "Platform for containerizing, deploying and scaling applications",
+        Firebase: "Cloud platform for databases, authentication, and app backend.",
+        NextJS: "React-based framework for server-side rendering and static-sites.",
+        NodeJS: "JavaScript runtime for building scalable backend applications.",
+        PostgreSQL: "Robust open-source database with advanced querying",
         ReactJS: "Javascript library for building interactive user interfaces"
     }    
     const stickers = Object.keys(stickerDescriptions)
@@ -56,7 +63,18 @@ export default function Products(){
                         </li>
                     </ul>
                     <div className="purchase-btns">
-                        <button>Add to cart</button>
+                        <button onClick={() => {
+                            const plannerPriceId = "planner_price_id"
+                            const planner_data = { 
+                                "name" : "Medieval Dragon Month Planner",
+                                "description" : "Step into a realm of fantasy and organization with our Medieval Dragon Month Planner! This high-resolution PNG asset combines the fierce elegance of dragons with intricate medieval designs to create a planner that's not only functional but also a work of art. Whether you are jotting down quests, planning battles, or just scheduling your weekly grocery run, this planner is your ultimate companion.",
+                                "image_name" : "planner",
+                                "image_url" : "low_res/planner.jpeg",
+                                "priceId" : plannerPriceId,
+                                "price_amount" : 14.99
+                            }
+                            handleIncrementProduct(plannerPriceId, 1, planner_data)
+                        }} >Add to cart</button>
                     </div>
                 </div>
             </div>
@@ -81,7 +99,18 @@ export default function Products(){
                                 <p className="text-medium">{sticker.replaceAll('_', ' ')} sticker.png</p>
                                 <p>{stickerDescriptions[sticker]}</p>
                                 <h4><span>$</span>5.99</h4>
-                                <button>Add to cart</button>
+                                <button onClick={() => {
+                            const stickerPriceId = stickers_priceid[stickerIndex]
+                            const sticker_data = { 
+                                "name" : sticker.replaceAll('_', ' ') + " " + "sticker.png",
+                                "description" : stickerDescriptions[sticker],
+                                "image_name" : sticker,
+                                "image_url" : `low_res/${sticker}.jpeg`,
+                                "priceId" : stickerPriceId,
+                                "price_amount" : 5.99                          
+                            }
+                            handleIncrementProduct(stickerPriceId, 1, sticker_data)
+                        }}>Add to cart</button>
                             </div>
                         </div>
                     )
