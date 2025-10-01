@@ -40,11 +40,6 @@ export default function RootLayout({ children }) {
               </div>
               <div className="links-container">
                 <div>
-                  <h3>Kalyan</h3>
-                  <Link href={'/'}>Kalyan Hub</Link>
-                  <Link href={'/'}>Roadmap</Link>
-                </div>
-                <div>
                   <h3>Store</h3>
                   <Link href={'/'}>Home</Link>
                   <Link href={'/cart'}>Cart</Link>
@@ -56,13 +51,13 @@ export default function RootLayout({ children }) {
                 </div>
               </div>
               <div className="socials">
-                <p>© <a href="https://www.smoljames.com" target="blank">Kalyan
+                <p>© <a href="https://kalyan-web-portfolio.netlify.app/" target="blank">Kalyan
                 </a> 2025 <br />Build with NextJS & <a target="_blank"
-                href="https://www.fantacss.smoljames.com">FantaCSS</a> 🔥</p>
+                href="https://github.com/kalyan-git-repo/Fanta_CSS">FantaCSS</a> 🔥</p>
                 <div className="social-links">
-                  <Link href={'/'} target="_blank"><i className="fa-brands fa-github"></i></Link>
+                  <Link href={'https://github.com/kalyan-git-repo'} target="_blank"><i className="fa-brands fa-github"></i></Link>
                   <Link href={'/'} target="_blank"><i className="fa-brands fa-youtube"></i></Link>
-                  <Link href={'/'} target="_blank"><i className="fa-brands fa-linkedin"></i></Link>
+                  <Link href={'https://www.linkedin.com/in/kalyanasundaram-c-67a423206/'} target="_blank"><i className="fa-brands fa-linkedin"></i></Link>
                 </div>
               </div>
             </footer>
